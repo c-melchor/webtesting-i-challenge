@@ -12,19 +12,17 @@ describe("success function", () => {
     beforeEach(() => {
         item = {
             name: "newItemName", enhancement: 7, durability: 11
-        }
+        };
+
     });
 
     it("exists", () => {
         expect(item).toBeDefined();
     });
 
-    it("increases enhancement if applicable", () => {
+    it('increases enhancement if applicable', () => {
         let success = enhancer.success;
-        success = jest.fn();
-        console.log(success)
-        success(item)
-        console.log(success(item), "SUCCESS?")
-
-    });
+        console.log(item, "ITEM")
+        expect(success(item)).toStrictEqual({ name: "newItemName", enhancement: 8, durability: 11 })
+    })
 })
