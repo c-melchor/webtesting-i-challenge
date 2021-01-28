@@ -8,19 +8,20 @@ it("exists", () => {
     expect(enhancer).toBeDefined();
 });
 
-describe("repairs function", () => {
+describe("success function", () => {
+
     beforeEach(() => {
-        // let item = {name, durability, enhancement}
-        enhancer.repair = jest.fn((item) => { return item });
+        item = {
+            name: "newItemName", enhancement: 7, durability: 11
+        }
     });
 
-    it("repairs item", () => {
-        let item = enhancer.repair.item;
-        let repair = enhancer.repair;
-        const expected = item;
-        const actual = repair(item)
-        expect(repair).toBeDefined();
-        expect(actual).toBe(expected)
+    it("exists", () => {
+        expect(item).toBeDefined();
+    });
+
+    it("increases enhancement if applicable", () => {
+
 
     });
 })
