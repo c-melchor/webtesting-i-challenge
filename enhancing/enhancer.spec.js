@@ -9,20 +9,33 @@ it("exists", () => {
 });
 
 describe("success function", () => {
-    beforeEach(() => {
-        item = {
-            name: "newItemName", enhancement: 7, durability: 11
-        };
+    item = { name: "newItemName", enhancement: 7, durability: 11 }
 
-    });
-
-    it("exists", () => {
+    it("has a param that exists", () => {
         expect(item).toBeDefined();
     });
 
-    it('increases enhancement if applicable', () => {
+    it("increases enhancement if applicable", () => {
         let success = enhancer.success;
-        console.log(item, "ITEM")
-        expect(success(item)).toStrictEqual({ name: "newItemName", enhancement: 8, durability: 11 })
-    })
+        expect(success({ name: "newItemName", enhancement: 7, durability: 11 })).toStrictEqual({ name: "newItemName", enhancement: 8, durability: 11 })
+    });
+
+    it("enhancement doesn't increase if item.enhancement = 20", () => {
+        let success = enhancer.success;
+        expect(success({ name: "Birdie", enhancement: 20, durability: 50 })).toStrictEqual({ name: "Birdie", enhancement: 20, durability: 50 })
+    });
 })
+
+describe("fail function", () => {
+    item = { name: "plato", enhancement: 55, durability: 99 };
+
+    it("has a param that exists", () => {
+        expect(item).toBeDefined();
+    });
+
+    it("decreases durability by 5 if enhancement < 15", () => {
+        let fail = enhancer.fail;
+
+        expect(fail({ name: "me", enhancement: 14, durability: 22 })).toStrictEqual({ name: "me", enhancement: 14, durability: 17 })
+    });
+});
