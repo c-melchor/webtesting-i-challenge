@@ -35,7 +35,11 @@ describe("fail function", () => {
 
     it("decreases durability by 5 if enhancement < 15", () => {
         let fail = enhancer.fail;
+        expect(fail({ name: "me", enhancement: 14, durability: 22 })).toStrictEqual({ name: "me", enhancement: 14, durability: 17 });
+    });
 
-        expect(fail({ name: "me", enhancement: 14, durability: 22 })).toStrictEqual({ name: "me", enhancement: 14, durability: 17 })
+    it("decreases durability by 10 if enhancement is 15+", () => {
+        let fail = enhancer.fail;
+        expect(fail({ name: "you", enhancement: 15, durability: 55 })).toStrictEqual({ name: "you", enhancement: 15, durability: 45 });
     });
 });
