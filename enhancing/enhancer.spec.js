@@ -9,7 +9,6 @@ it("exists", () => {
 });
 
 describe("success function", () => {
-
     beforeEach(() => {
         item = {
             name: "newItemName", enhancement: 7, durability: 11
@@ -21,7 +20,11 @@ describe("success function", () => {
     });
 
     it("increases enhancement if applicable", () => {
-
+        let success = enhancer.success;
+        success = jest.fn();
+        console.log(success)
+        success(item)
+        console.log(success(item), "SUCCESS?")
 
     });
 })
