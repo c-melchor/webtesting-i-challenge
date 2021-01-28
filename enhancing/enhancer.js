@@ -21,9 +21,8 @@ function fail(item) {
     return { ...item, durability: item.durability - 10 };
   } else if (item.enhancement > 16) {
     return { ...item, enhancement: item.enhancement - 1 }
-  } else {
-    return { ...item }
   }
+
 }
 
 function repair(item) {

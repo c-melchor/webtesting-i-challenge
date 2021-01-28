@@ -42,4 +42,10 @@ describe("fail function", () => {
         let fail = enhancer.fail;
         expect(fail({ name: "you", enhancement: 15, durability: 55 })).toStrictEqual({ name: "you", enhancement: 15, durability: 45 });
     });
+
+    // it("decreases enhancement by 1 is enhancement level is orig > 16", () => {
+    //     let fail = enhancer.fail;
+    //     expect(fail({ name: "andrew", enhancement: 18, durability: 99 })).toStrictEqual({ name: "andrew", enhancement: 17, durability: 89 })
+
+    // });
 });
